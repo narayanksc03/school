@@ -9,6 +9,7 @@
             <a href="{{ route('home') }}"class="text-black hover:text-red-500 {{ request()->routeIs('home') ? 'text-red-500 font-bold' : '' }}">Home</a>
             <a href="{{ route('about') }}"class="text-black hover:text-red-500 {{ request()->routeIs('about') ? 'text-red-500 font-bold' : '' }}">About</a>
             <a href="{{ route('blog') }}"class="text-black hover:text-red-500 {{ request()->routeIs('blog') ? 'text-red-500 font-bold' : '' }}">Blog</a>
+            <a href="{{ route('admission.index') }}"class="text-black hover:text-red-500 {{ request()->routeIs('admission*') ? 'text-red-500 font-bold' : '' }}">Admission</a>
             <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="flex text-black hover:text-red-500 {{ request()->routeIs('course_list') ? 'text-red-500 font-bold' : '' }}" type="button">
   Course
   <svg class="w-4 h-4 ms-1.5 -me-0.5 mt-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/></svg>

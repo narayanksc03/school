@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmissionContriller;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PageController;
 use App\Models\Course;
@@ -47,7 +48,8 @@ Route::patch("/course/update/{id}",[CourseController::class,"update"])->name("co
 
 
 
-
+//Adminssion Route
+Route::resource("/admission",AdmissionContriller::class)->names('admission');
 
 
 

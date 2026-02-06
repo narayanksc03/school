@@ -1,43 +1,25 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PageController;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", function () {
-    return view("welcome");
-});
-Route::get("/home",function(){
-    return view("home");
-})->name("home");
+// Route::get("/", );
 
-Route::get("/about",function(){
-    return view("about");
-})->name("about");
+Route::get("/home",[PageController::class,"home"] )->name("home");
 
-Route::get("/Blog",function(){
-    return view("blog");
-})->name("blog");
+Route::get("/about",[PageController::class,"about"] )->name("about");
 
-Route::get("/contact",function(){
-    return view("contact");
-})->name("contact");
+Route::get("/Blog",[PageController::class,"blog"])->name("blog");
+
+Route::get("/contact",[PageController::class,"contact"])->name("contact");
 
 // course route
-Route::get("/course/create",function(){
-    return view("course.create");
-})->name("course_create");
+Route::get("/course/create",[CourseController::class,"create"])->name("course_create");
 
-Route::get("/course/list",function(){
-    $courses= Course::all();
-    return view("course.list",compact("courses"));
-})->name("course_list");
-
-// Route::post("/course/store",function(Request $request){
-//     return $request;
-//     // return view("course.store");
-// })->name("course_store");
-
+Route::get("/course/list",[CourseController::class,"list"])->name("course_list");
 // Get,post
 //http methods
 //get-read
@@ -51,43 +33,15 @@ Route::get("/course/list",function(){
 
 // Route::get("/", [UserController::class, "welcome"])->name("welcome");
 
-Route::post("/course/store",function(Request $request){
-    // return $request;
-    $course = new Course();
-    $course->name = $request->name;
-    $course->price = $request->price;
-    $course->duration = $request->duration;
-    $course->description = $request->description;
-    $course->save();
-    toast("Course saved", "sucessful");
-    return redirect()->back();
-})->name("course_store");
+Route::post("/course/store",[CourseController::class,"store"])->name("course_store");
 
-Route::get("/course/edit/{id}", function($id){
-    $course = Course::find($id);
-    return view("course.edit",compact('course'));
-})->name("course_edit");
+Route::get("/course/edit/{id}",[CourseController::class,"edit"] )->name("course_edit");
 
-Route::delete("/course/delete/{id}", function($id){
-    $course = Course::find($id);
-    $course->delete();
-    toast("Course deleted", "sucess");
-    return redirect()->back();
-})->name("course_delete");
+Route::delete("/course/delete/{id}",[CourseController::class,"delete"] )->name("course_delete");
 
 
 //function(Request $request) Request(request http) brings all the data comes from form /course/create and $request is a vairable to put the data on it
-Route::patch("/course/update/{id}",function(Request $request,$id){
-    // return $request;
-    $course = course::find($id);
-    $course->name = $request->name;
-    $course->price = $request->price;
-    $course->duration = $request->duration;
-    $course->description = $request->description;
-    $course->save();
-    toast("Course updated sucessful");
-    return redirect()->route('course_create');
-})->name("course_update");
+Route::patch("/course/update/{id}",[CourseController::class,"update"])->name("course_update");
 
 // Extract the data with the id number
 

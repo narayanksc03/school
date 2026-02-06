@@ -2,7 +2,7 @@
     <section class="py-10 container m-auto">
         <div class="flex justify-between items-center">
             <h1 class="text-3xl font-semibold py-4">Course List</h1>
-            {{-- <a href="{{ route('course_create') }}" class="bg-blue-500 py-2 px-4 text-white rounded">add new</a> --}}
+            {{-- <a href="{{ route("course_create") }}" class="bg-blue-500 py-2 px-4 text-white rounded">add new</a> --}}
 
         </div>
         {{-- to check weather data is extracting or not --}}
@@ -14,6 +14,7 @@
                     <th class="p2 border border-gray-200">Name</th>
                     <th class="p2 border border-gray-200">Price</th>
                     <th class="p2 border border-gray-200">Duration</th>
+                    <th class="p2 border border-gray-200">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,17 @@
                         <td class="p-2 border border-grey-300">{{ $c->name }}</td>
                         <td class="p-2 border border-grey-300">{{ $c->price }}</td>
                         <td class="p-2 border border-grey-300">{{ $c->duration }}</td>
+                        <td class="p-2 border border-grey-300">
+                            <a class="px-4" href="/course/edit/{{ $c->id }}">edit</a>
+                            <form action="{{route('course_delete',$c->id)}}" method="POST">
+                            
+                                @csrf
+                                @method("delete")
+                                <button type="submit" class="text-[red]">Delete</button>
+                            </form>
+                        </td>
+
+
                     </tr>
                 @endforeach
 

@@ -2,10 +2,12 @@
     <section class="container m-auto">
         <div class="flex justify-between mt-20">
             <h1 class="text-3xl font-semibold">Course Create</h1>
-            
+
         </div>
         <div class="mt-20 ">
            <form action="{{route('course_store')}}" method="POST">
+
+            {{-- @method("PATCH") --}}
             @csrf
            <div class="grid grid-cols-2 gap-2 ">
                 <div>

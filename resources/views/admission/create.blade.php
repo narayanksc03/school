@@ -24,7 +24,7 @@
                 </div>
                 <div>
                         <label for="email">Email.</label>
-                        <input type="text" name="email" id="email" class="border border-gray-500 mt-1 w-full">
+                        <input type="email" name="email" id="email" class="border border-gray-500 mt-1 w-full">
                 </div>
                 <div class="col-span-2">
                         <label for="action">Action</label>

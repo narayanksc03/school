@@ -11,4 +11,9 @@ class Course extends Model
         return $this->hasMany(Admission::class,);
     }
 
+    public function create()
+{
+    $courses = Course::all();
+    return view('admission.create', compact('courses'));
+}
 }

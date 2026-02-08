@@ -5,7 +5,7 @@
 
         </div>
         <div class="mt-20 ">
-           <form action="{{route('admission.create')}}" method="POST">
+           <form action="{{route('admission.store')}}" method="POST">
 
             {{-- @method("PATCH") --}}
             @csrf
@@ -14,17 +14,28 @@
                         <label for="name">Name: </label>
                         <input type="text" name="name" id="name" class="border border-gray-500 mt-1 w-full" placeholder="Full Name">
                 </div>
-                <div>
+                {{-- <div>
                         <label for="address">Address:</label>
                         <input type="text" name="address" id="address" class="border border-gray-500 mt-1 w-full">
-                </div>
+                </div> --}}
                 <div>
                         <label for="phone">Phone</label>
-                        <input type="number" name="phone" id="duration" class="border border-gray-500 mt-1 w-full">
+                        <input type="tel" name="phone" id="duration" class="border border-gray-500 mt-1 w-full">
                 </div>
                 <div>
                         <label for="email">Email.</label>
                         <input type="email" name="email" id="email" class="border border-gray-500 mt-1 w-full">
+                </div>
+                <div>
+                        <label for="course" >Select Course</label>
+                        <select class="border border-gray-500 mt-1 w-full" type="text" name="course" id="course">
+                            @foreach ($courses as $course)
+                            <option value="{{ $course->id }}">{{ $course->name }}</option>
+
+                            @endforeach
+
+
+                        </select>
                 </div>
                 <div class="col-span-2">
                         <label for="action">Action</label>

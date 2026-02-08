@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\Admission;
 use Illuminate\Http\Request;
 
 class AdmissionController extends Controller
@@ -19,16 +21,23 @@ class AdmissionController extends Controller
      */
     public function create()
     {
-        return view('admission.create');
+        $courses = Course::all();
+        return view('admission.create',compact('courses'));
     }
 
-   
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $admission= new Admission();
+        $admission->name=$request->name;
+        $admission->email=$request->email;
+        $admission->phone=$request->phone;
+        $admission->course_id=$request->course;
+        $admission->save();
+
     }
 
     /**

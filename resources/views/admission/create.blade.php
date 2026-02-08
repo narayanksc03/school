@@ -1,30 +1,34 @@
 <x-layout>
     <section class="container m-auto">
         <div class="flex justify-between mt-20">
-            <h1 class="text-3xl font-semibold">Course Create</h1>
+            <h1 class="text-3xl font-semibold">Admission Create</h1>
 
         </div>
         <div class="mt-20 ">
-           <form action="{{route('course_store')}}" method="POST">
+           <form action="{{route('admission.create')}}" method="POST">
 
             {{-- @method("PATCH") --}}
             @csrf
            <div class="grid grid-cols-2 gap-2 ">
                 <div>
                         <label for="name">Name: </label>
-                        <input type="text" name="name" id="name" class="border border-gray-500 mt-1 w-full" placeholder="Course Name">
+                        <input type="text" name="name" id="name" class="border border-gray-500 mt-1 w-full" placeholder="Full Name">
                 </div>
                 <div>
-                        <label for="price">Price: in(Rs)</label>
-                        <input type="number" name="price" id="price" class="border border-gray-500 mt-1 w-full" value="999">
+                        <label for="address">Address:</label>
+                        <input type="text" name="address" id="address" class="border border-gray-500 mt-1 w-full">
                 </div>
                 <div>
-                        <label for="duration">Duration:</label>
-                        <input type="text" name="duration" id="duration" class="border border-gray-500 mt-1 w-full">
+                        <label for="phone">Phone</label>
+                        <input type="number" name="phone" id="duration" class="border border-gray-500 mt-1 w-full">
+                </div>
+                <div>
+                        <label for="email">Email.</label>
+                        <input type="text" name="email" id="email" class="border border-gray-500 mt-1 w-full">
                 </div>
                 <div class="col-span-2">
-                        <label for="description">Description:</label>
-                        <textarea name="description" id="description" cols="30" rows="5" class="border border-gray-500 mt-1 w-full"></textarea>
+                        <label for="action">Action</label>
+                        <textarea name="Action" id="action" cols="30" rows="5" class="border border-gray-500 mt-1 w-full"></textarea>
                 </div>
 
            </div>

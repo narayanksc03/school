@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdmissionContriller extends Controller
+class AdmissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +19,10 @@ class AdmissionContriller extends Controller
      */
     public function create()
     {
-        //
+        return view('admission.create');
     }
 
+   
     /**
      * Store a newly created resource in storage.
      */
